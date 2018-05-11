@@ -1,0 +1,39 @@
+/*
+
+  0    - 600px  Phone
+  600  - 900px  Tablet Portrait
+  900  - 1200px Tablet Landscape
+  1200 - 1800px Desktop (normal desktop first approach)
+  1800 + Big Desktop
+
+
+$breakpoint argument choices:
+ phone
+ tablet-portrait
+ tablet-landscape
+ desktop
+
+ em = best choice for media queries
+ 1em = 16px
+*/
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+a {
+  text-decoration: none; }
+
+/**
+ * Clear inner floats
+ */
+.clearfix::after {
+  clear: both;
+  content: '';
+  display: table; }
