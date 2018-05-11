@@ -1,0 +1,6 @@
+export const USER_READY = 'USER_READY';
+
+export const CHANGE_COLOR = 'CHANGE_COLOR';
+
+export const ADD_ACCESSORIES = 'ADD_ACCESSORIES';
+export const REMOVE_ACCESSORIES = 'REMOVE_ACCESSORIES';

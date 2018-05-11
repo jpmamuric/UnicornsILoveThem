@@ -1,0 +1,89 @@
+.home__container {
+  max-width: 30%;
+
+  @media only screen and (min-width: 75em) {
+    @include center;
+  }
+}
+
+//-------------------------------------
+// Landing
+//-------------------------------------
+.castle,
+.unicorn {
+  border-radius: 50%;
+  font-size: 2rem;
+  height: 15rem;
+  width: 15rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.castle {
+    cursor: pointer;
+    background-color: orangered;
+}
+
+
+//-------------------------------------
+// Unicorn
+//-------------------------------------
+.unicorn {
+  color: #777;
+    border: solid 1px #000;
+    margin: 8rem 0;
+
+    &__container {
+      position: relative;
+
+    }
+}
+
+.unicorn__color {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+
+  color: rgba(#777, .9);
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 1rem;
+  margin: 1rem;
+  transition: all .2s;
+
+  &:hover {
+    transform: translateY(-0.3rem);
+  }
+}
+
+.unicorn__color {
+  &-black {
+      background-color: #000;
+  }
+
+  &-white{
+      background-color: #fff;
+  }
+
+  &-purple {
+      background-color: purple;
+  }
+
+  &-pink {
+    background-color: fuchsia;
+  }
+
+  &-blue{
+    background-color: aqua;
+  }
+
+  &-brown {
+    background-color: brown;
+  }
+
+  &-rainbow {
+    background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
+  }
+}

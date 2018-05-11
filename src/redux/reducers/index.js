@@ -1,7 +1,9 @@
 import { combineReducers } from 'redux';
 
+import unicorn from './unicorn_reducer';
+
 const rootReducer = combineReducers({
-  state: (state = {}) => state
+  unicorn
 });
 
 export default rootReducer;

@@ -30,6 +30,9 @@ html {
 a {
   text-decoration: none; }
 
+body {
+  background-color: #eee; }
+
 /**
  * Clear inner floats
  */
@@ -37,3 +40,128 @@ a {
   clear: both;
   content: '';
   display: table; }
+
+.accessory__undo {
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 1rem 2rem; }
+
+.unicorn__accessory {
+  position: absolute; }
+  .unicorn__accessory-hair {
+    top: -1.5rem;
+    left: 4.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    background-color: green;
+    border-radius: 50%; }
+  .unicorn__accessory-hooves {
+    left: 6rem;
+    bottom: -1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    background-color: brown;
+    border-radius: 50%; }
+  .unicorn__accessory-tail {
+    top: 6.5rem;
+    left: 14.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 1rem;
+    background-color: orange; }
+  .unicorn__accessory-horn {
+    top: 2rem;
+    left: -4rem;
+    transform: rotate(30deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6rem;
+    height: 1rem;
+    background-color: gold; }
+
+.parts {
+  font-size: 1.5rem;
+  margin: 1rem;
+  padding: 2rem; }
+  .parts__picker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+  .parts__label {
+    min-width: 10rem; }
+  .parts__btn {
+    cursor: pointer;
+    border: none; }
+
+.home__container {
+  max-width: 30%; }
+  @media only screen and (min-width: 75em) {
+    .home__container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); } }
+
+.castle,
+.unicorn {
+  border-radius: 50%;
+  font-size: 2rem;
+  height: 15rem;
+  width: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.castle {
+  cursor: pointer;
+  background-color: orangered; }
+
+.unicorn {
+  color: #777;
+  border: solid 1px #000;
+  margin: 8rem 0; }
+  .unicorn__container {
+    position: relative; }
+
+.unicorn__color {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  color: rgba(119, 119, 119, 0.9);
+  cursor: pointer;
+  font-size: 2rem;
+  padding: 1rem;
+  margin: 1rem;
+  transition: all .2s; }
+  .unicorn__color:hover {
+    transform: translateY(-0.3rem); }
+
+.unicorn__color-black {
+  background-color: #000; }
+
+.unicorn__color-white {
+  background-color: #fff; }
+
+.unicorn__color-purple {
+  background-color: purple; }
+
+.unicorn__color-pink {
+  background-color: fuchsia; }
+
+.unicorn__color-blue {
+  background-color: aqua; }
+
+.unicorn__color-brown {
+  background-color: brown; }
+
+.unicorn__color-rainbow {
+  background: linear-gradient(to right, orange, yellow, green, cyan, blue, violet); }

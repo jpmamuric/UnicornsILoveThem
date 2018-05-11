@@ -1,0 +1,20 @@
+.parts {
+  font-size: 1.5rem;
+  margin: 1rem;
+  padding: 2rem;
+
+  &__picker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__label {
+    min-width: 10rem;
+  }
+
+  &__btn {
+    cursor: pointer;
+    border: none;
+  }
+}
