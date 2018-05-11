@@ -4,7 +4,7 @@ const initialState = {
   readyToBuild: false,
   color: 'white',
   colorChosen: false,
-  accessories: {},
+  accessories: [],
   parts: {},
   totalPrice: 0,
 };
@@ -17,24 +17,54 @@ export default ( state = initialState, action ) => {
     case types.CHANGE_COLOR:
       return { ...state, color: action.payload , colorChosen: action.colorChosen };
 
-    case types.ADD_ACCESSORIES:
+    case types.ADD_PARTS:
       return {
         ...state,
-        accessories: {
-          ...state.accessories,
-          [action.accessoryName]: action.payload
+        parts: {
+          ...state.parts,
+          [action.partName]: action.payload
         }
       };
 
-    case types.REMOVE_ACCESSORIES:
+    case types.REMOVE_PARTS:
       return {
         ...state,
-        accessories: {
-          ...state.accessories,
-          [action.accessoryName]: action.payload
+        parts: {
+          ...state.parts,
+          [action.partName]: action.payload
         }
       };
-      
+
+    case types.ADD_ACCESSORIES:
+      const accessoryExists = (obj, list) => {
+        for (let i = 0; i < list.length; i++) {
+            if (list[i].id === obj.id) {
+                return true;
+            }
+        }
+
+        return false;
+      }
+
+      if(accessoryExists(action.payload, state.accessories)) {
+        return state;
+      }
+
+      return {
+        ...state,
+        accessories: [...state.accessories, action.payload]
+      };
+
+    case types.REMOVE_ACCESSORIES:
+
+      const updatedAccessories = state.accessories.filter(result => result.id !== action.payload)
+      return {
+        ...state,
+        accessories: updatedAccessories
+      };
+
+
+
     default:
       return state;
   }

@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../../redux/actions/unicorn_actions';
-import ColorPicker from './ColorPicker';
-import AccessoryPicker from './AccessoryPicker';
-import PartsPicker from './PartsPicker';
+import ColorPicker from './color/ColorPicker';
+import AccessoryPicker from './accessories/AccessoryPicker';
+import Accessories from './accessories/Accessories';
+import PartsPicker from './parts/PartsPicker';
+import Parts from './parts/Parts';
+
 
 const colorsOptions = [
   'black', 'white', 'brown', 'pink', 'purple', 'blue', 'rainbow'
@@ -13,9 +16,12 @@ const colorsOptions = [
 class UnicornBuilder extends Component {
   render() {
     const {
-      addAccessories,
-      removeAccessories,
+      addParts,
+      removeParts,
+      addAccessory,
+      removeAccessory,
       accessories,
+      parts,
       color,
       changeColor,
       colorChosen
@@ -23,24 +29,21 @@ class UnicornBuilder extends Component {
 
     return (
       <div>
+        {/* SELECT UNICORN PARTS */}
+        <PartsPicker add={addParts} remove={removeParts} parts={parts}/>
 
-        <PartsPicker add={addAccessories} remove={removeAccessories} accessories={accessories}/>
-
+        {/* UNICORN */}
         <div className='unicorn__container'>
-          <div className={`unicorn unicorn__color-${color}`}>
-            Unicorn
-          </div>
-          { accessories.hair ? <div className='unicorn__accessory unicorn__accessory-hair'>hair</div> : null }
-          { accessories.tail ? <div  className='unicorn__accessory unicorn__accessory-tail'>tail</div> : null }
-          { accessories.hooves ? <div className='unicorn__accessory unicorn__accessory-hooves' >hooves</div> : null }
-          { accessories.horn ? <div className='unicorn__accessory unicorn__accessory-horn'>horn</div> : null }
+          <div className={`unicorn unicorn__color-${color}`}>Unicorn</div>
+          <Parts parts={parts} />
+          <Accessories accessories={accessories} />
         </div>
 
-
+        {/* SELECT UNICORN HAIR & ACCESSORIES */}
          <div>
            { !colorChosen
             ? <ColorPicker color={color} colorsOptions={colorsOptions} changeColor={changeColor}/>
-            : <AccessoryPicker changeColor={changeColor} />
+          : <AccessoryPicker accessories={accessories} changeColor={changeColor} add={addAccessory} remove={removeAccessory}/>
            }
          </div>
       </div>
@@ -49,8 +52,8 @@ class UnicornBuilder extends Component {
 }
 
 const mapStateToProps = ({ unicorn }) => {
-  const { color, colorChosen, accessories } = unicorn;
-  return { color, colorChosen, accessories };
+  const { color, colorChosen, parts, accessories } = unicorn;
+  return { color, colorChosen, parts, accessories };
 };
 
 export default connect(mapStateToProps, actions)(UnicornBuilder);
